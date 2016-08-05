@@ -1,0 +1,8 @@
+.settings
+bin
+META-INF
+.classpath
+.project
+build.properties
+src/*properties
+src/WOLLOK.ROOT

@@ -1,0 +1,44 @@
+import cocina.*
+
+/* se puede usar assert.equals(esperado,valor) o 
+ * assert.that(booleano) 	
+ */
+ 
+test "las calorias de la leche deberían ser 20" {
+	assert.equals(20,leche.calorias())
+}
+
+test "las calorias de la leche condensada deberían ser 200" {
+	assert.equals(200,lecheCondensada.calorias())
+}
+
+test "un cheesecake sin nada deberia tener 0 calorias" {
+	assert.equals(0, cheesecake.calorias())
+}
+
+test "un cheesecake sin nada deberia tener 0 elementos" {
+	assert.equals(0, cheesecake.cantidadElementos())
+}
+
+test "agregar un ingrediente aumenta las calorias dependiendo del ingrediente"
+{
+	cheesecake.agregar(leche)
+	assert.equals(20, cheesecake.calorias())
+}
+
+test "agregar un ingrediente aumenta la cantidad de elementos en 1" {
+	cheesecake.agregar(leche)
+	cheesecake.agregar(lecheCondensada)
+	assert.equals(2, cheesecake.cantidadElementos())
+}
+
+test "un cheesecake con menos de 100 calorias es light" {
+	cheesecake.agregar(leche)
+	cheesecake.agregar(leche)
+	assert.that(cheesecake.esLight())
+}
+
+test "un cheesecake con mas de 100 calorias no es light" {
+	cheesecake.agregar(lecheCondensada)
+	assert.that(!cheesecake.esLight())
+}
