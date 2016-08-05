@@ -20,8 +20,7 @@ test "un cheesecake sin nada deberia tener 0 elementos" {
 	assert.equals(0, cheesecake.cantidadElementos())
 }
 
-test "agregar un ingrediente aumenta las calorias dependiendo del ingrediente"
-{
+test "agregar un ingrediente aumenta las calorias dependiendo del ingrediente" {
 	cheesecake.agregar(leche)
 	assert.equals(20, cheesecake.calorias())
 }
@@ -40,5 +39,5 @@ test "un cheesecake con menos de 100 calorias es light" {
 
 test "un cheesecake con mas de 100 calorias no es light" {
 	cheesecake.agregar(lecheCondensada)
-	assert.that(!cheesecake.esLight())
+	assert.notThat(cheesecake.esLight())
 }
