@@ -1,28 +1,22 @@
 
 
 object cheesecake {
-	var calorias = 0
-	var cantidadElementos = 0
-
+	var elementos = []
+	
 	method agregar(elemento) {
-		cantidadElementos += 1
-		self.aumentarCaloriasEn(elemento.calorias())
+		elementos.add(elemento)
 	}
 	
 	method esLight(){
-		return calorias < 100
-	}
-
-	method aumentarCaloriasEn(unaCantidad) {
-		calorias += unaCantidad
+		return self.calorias() < 100
 	}
 	
 	method calorias(){
-		return calorias
+		return elementos.sum({elemento => elemento.calorias()})
 	}
 	
 	method cantidadElementos(){
-		return cantidadElementos	
+		return elementos.size()	
 	}
 }
 
